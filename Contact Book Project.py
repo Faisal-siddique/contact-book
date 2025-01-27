@@ -11,10 +11,13 @@ contact = {}
 6. Exit
    Enter your choice'''
 
-def display_contract():
+def display_contact():
     print("Name\t\tContact Number")
-for key in contact:
-   print("{}\ t\ t {}".format(key, contact.get(key)))
+    for key in contact:
+        print(f"{key}\t\t{contact[key]}")
+
+def my_function():
+    display_contact()
 
 while True:
     choice = int(input("1. Add new contact \n 2.Search contact \n 3.Display contact \n 4.Edit contact \n 5.Delete Contact \n 6.Exit \n   Enter your choice"))
@@ -22,6 +25,7 @@ while True:
         name = input("enter the contact name ")
         phone = input("enter the mobile number")
         contact[name] = phone
+        print("Contact Added Sucess")
 
     elif choice == 2:
         search_name = input("enter the contact name ")
@@ -31,6 +35,7 @@ while True:
             print("Name is not found in contact book")
 
     elif choice == 3:
+       print(choice)
        if not contact:
            print("empty contact book")
        else:
@@ -51,7 +56,7 @@ while True:
             confirm =input("Do you want to delete this contact y/n? ")
             if confirm =='y' or confirm =='Y':
                 contact.pop(del_contact)
-            display_contact()
+            my_function()
         else:
             break 
     
